@@ -19,8 +19,7 @@ jobs:
 
     # Steps represent a sequence of tasks that will be executed as part of the job
     steps:
-      - run: echo ${{github.ref}}_v1.0
-
+      - run: echo ${{github.ref}}_v1.1
           
   job2:
     # The type of runner that the job will run on
