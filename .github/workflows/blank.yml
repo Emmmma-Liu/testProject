@@ -6,9 +6,9 @@ name: CI
 # events but only for the main branch
 on:
   push:
-    branches: [ main ]
   pull_request:
-    branches: [ main ]
+    branches: 
+      - 'master'
 
 # A workflow run is made up of one or more jobs that can run sequentially or in parallel
 jobs:
@@ -19,13 +19,12 @@ jobs:
 
     # Steps represent a sequence of tasks that will be executed as part of the job
     steps:
-      - run: echo ${{github.ref}}_v1.0
-
+      - run: echo ${{github.ref}}_v1.1
           
   job2:
     # The type of runner that the job will run on
     runs-on: ubuntu-latest
-    if: github.ref == 'refs/heads/haha' || github.ref == 'refs/heads/main'
+    if: github.event_name == 'pull_request'
     
 
     # Steps represent a sequence of tasks that will be executed as part of the job
